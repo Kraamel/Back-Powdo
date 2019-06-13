@@ -1,0 +1,11 @@
+{
+  "type": "postgres",
+  "host": "172.18.0.2",
+  "port": 5432,
+  "username": "postgres",
+  "password": "",
+  "database": "powdo",
+  "synchronize": true,
+  "logging": true,
+  "entities": ["./src/**/*.entity.ts", "./dist/**/*.entity.js"]
+}
