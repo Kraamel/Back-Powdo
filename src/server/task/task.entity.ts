@@ -2,6 +2,21 @@ import {Column, CreateDateColumn, Entity, PrimaryGeneratedColumn} from 'typeorm'
 
 @Entity()
 export class TaskEntity {
+    constructor(
+        id: string,
+        title: string,
+        detail: string | null = null,
+        status: string = 'todo',
+        createdAt: Date,
+        updatedAt: Date,
+    ) {
+        this.id = id;
+        this.title = title;
+        this.detail = detail;
+        this.status = status;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+    }
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
@@ -9,14 +24,14 @@ export class TaskEntity {
     title: string;
 
     @Column('text')
-    detail: string;
+    detail: string | null = null;
 
     @Column('text')
     status: string;
 
     @CreateDateColumn()
-    created_at: Date;
+    createdAt: Date;
 
     @CreateDateColumn()
-    updated_at: Date;
+    updatedAt: Date;
 }
